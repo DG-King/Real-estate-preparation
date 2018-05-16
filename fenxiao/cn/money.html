@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="format-detection" content="telephone=no" />
+	<title>我的佣金</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<script src="../js/common.js"></script>
+	<style>
+		.ellipsis {
+			overflow: hidden;
+			text-overflow:ellipsis;
+			white-space: nowrap;
+		}
+		.main header {
+			position: fixed;
+			width: 100%;
+			height: 5.17rem;
+			padding-left: 1.67rem;
+			background: #fff;
+			border-bottom: 1px solid #eee;
+			line-height: 5.17rem;
+		}
+		.charge {
+			display: inline-block;
+			max-width: 60%;
+			margin-left: 5%;
+			vertical-align: bottom;
+			font-size: 2rem;
+			color: #f08519;
+		}
+		.line {
+			height: 0.83rem;
+			padding-top: 5.17rem;
+			background: #eee;
+		}
+		.dataShow {
+			display: none;
+			width: 100%;
+			table-layout: fixed;
+			background: #fff;
+		}
+		.dataShow th {
+			width: 20%;
+			height: 3.08rem;
+			background: #f08519;
+			color: #fff;
+			border-right: 1px solid #fff;
+		}
+		.dataShow td {
+			width: 20%;
+			height: 2.67rem;
+			text-align: center;
+			border-bottom: 1px solid #e4e4e4;
+			font-size: .8rem;
+		}
+		table tr:nth-child(even){
+			background: #eee;
+		}
+		.nodata {
+			display: none;
+		}
+		.nodata img {
+			display: block;
+			width: 34%;
+			height: 8rem;
+			margin: 9.58rem 35% 0 28%;
+		}
+		.nodata p {
+			text-align: center;
+			font-size: 1.5rem;
+		}
+		.main footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			height: 4.17rem;
+			display: table; 
+			table-layout: fixed;
+			width: 100%;
+			background: #fff;
+		}
+		.main footer a {
+			display:table-cell;
+			height: 2rem;
+			padding-top: 2.17rem;
+			border: 1px solid #eee;
+			text-align: center;
+			color: #8b8b8b;
+		}
+		.main footer a:nth-child(1), .main footer a:nth-child(2) {
+			border-right: none;
+		}
+		.main footer a:nth-child(1) {
+			background: url("../images/home.png") 50% 20% no-repeat;
+			background-size: 1.5rem 1.5rem;
+		}
+		.main footer a:nth-child(2) {
+			background: url("../images/custome.png") 50% 20% no-repeat;
+			background-size: 1.67rem 1.5rem;
+		}
+		.main footer a:nth-child(3) {
+			background: url("../images/me.png") 50% 20% no-repeat;
+			background-size: 1rem 1.5rem;
+		}
+		.main footer a.active {
+			color: #f08618;
+		}
+		.main footer a:nth-child(3).active {
+			background: url("../images/meActive.png") 50% 20% no-repeat;
+			background-size: 1rem 1.5rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<header>
+			<h2>我的佣金(元)<span class="charge ellipsis">999999.0</span></h2>
+		</header>
+		<p class="line"></p>
+		<table class="dataShow">
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>报备时间</th>
+					<th>到场时间</th>
+					<th>成交时间</th>
+					<th>佣金</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="ellipsis">张三</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">99999</td>
+				</tr>
+				<tr>
+					<td class="ellipsis">张三</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">99999</td>
+				</tr>
+				<tr>
+					<td class="ellipsis">张三</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">99999</td>
+				</tr>
+				<tr>
+					<td class="ellipsis">张三</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">99999</td>
+				</tr>
+				<tr>
+					<td class="ellipsis">张三</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">99999</td>
+				</tr>
+				<tr>
+					<td class="ellipsis">张三</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">2017-01-01</td>
+					<td class="ellipsis">99999</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="nodata">
+			<img src="../images/nodata.png" alt="暂无数据" title="暂无数据">
+			<p>暂无数据</p>
+		</div>
+		<footer>
+			<a href="index.html" title="首页">首页</a>
+			<a href="recorder.html" title="客户">客户</a>
+			<a href="me.html" title="我的" class="active">我的</a>
+		</footer>
+	</div>
+	<script>
+		var screenHeight = document.documentElement.clientHeight + $(".main footer").height() + 20;
+		var pageHeight = $(".main").height();
+		console.log(screenHeight, pageHeight);
+		if( screenHeight < pageHeight ) {
+			$(".main").css('paddingBottom', '4.5rem');
+		};
+		if($(".dataShow tr").length <= 0) {
+			$(".nodata").hide();
+		}else {
+			$(".dataShow").show();
+		}
+	</script>
+</body>
+</html>

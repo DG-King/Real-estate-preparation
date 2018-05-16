@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>详情</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/swiper.min.css">
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/swiper.min.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OHYGTBXh2i8n6x0W3YMuUPI1ajMQbGGv"></script>
+	<style>
+		.main {
+			padding-bottom: 4.17rem;
+		}
+		.swiper-container {
+		    height: 11.5rem;
+		}
+		.swiper-slide img {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		.swiper-pagination-bullet-active {
+			background: #fff;
+		}
+		.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+			margin: 0 2px;
+		}
+		.swiper-pagination {
+			text-align: right;
+		}
+		.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+			width: 95%;
+		}
+		.title {
+			height: 4.25rem;
+			padding: 1rem 0 0 6%;
+			border-bottom: 2px solid #eee;
+			font-size: 1rem;
+		}
+		.addTit {
+			margin-bottom: 5px;
+		}
+		.addTit span {
+			display: inline-block;
+			width: auto;
+			height: 100%;
+			margin-left: 5px;
+			padding: 0 5px;
+			border: 1px solid #f08618;
+			color: #f08618;
+		}
+		.addTit em {
+			float: left;
+			max-width: 16rem;
+			margin-right: 1rem;
+		}
+		.ellipsis {
+			overflow: hidden;
+			text-overflow:ellipsis;
+			white-space: nowrap;
+		}
+		.price, .commision {
+			color: #f08618;
+		}
+		.commision {
+			height: 3rem;
+			padding-left: 6%;
+			line-height: 3rem;
+			border-bottom: 2px solid #eee;
+		}
+		.person {
+		    display: table;
+		    table-layout: fixed;
+		    width: 100%;
+		}
+		.person div {
+			display: table-cell;
+			height: 3.34rem;
+			padding-top: 0.83rem;
+			border: 2px solid #eee;
+			border-top: none; 
+			border-right: none;
+			text-align: center;
+		}
+		.person div:nth-child(3) {
+			border-right: 2px solid #eee;
+		}
+		.person .ellipsis {
+			padding: 0 5%;
+		}
+		.line {
+			height: 0.63rem;
+			background: #eee;
+		}
+		h3 {
+			height: 2.83rem;
+			padding-left: 6%;
+			line-height: 2.83rem;
+			border-bottom: 2px solid #eee;
+		}
+		.detData {
+			margin: 6% 6%;
+		}
+		.detData div {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			height: 2.08rem;
+			line-height: 2.08rem;
+			border: 1px solid #fff;
+			-webkit-align-items: center;
+			align-items: center;
+		}
+		.fontCenter {
+			text-align: center;
+		}
+		.orange {
+			background: #f08519;
+		}
+		.yellow {
+			background: #fbd7a3;
+		}
+		.gray {
+			background: #eee;
+		}
+		.flex1 {
+			-webkit-box-flex: 1;
+			-webkit-flex: 1;
+			flex: 1;
+		}
+		.flex3 {
+			-webkit-box-flex: 3;
+			-webkit-flex: 3;
+			flex: 3;
+		}
+		.bgWhite {
+			background: #fff;
+		}
+		.detData em {
+			padding-left: 10px;
+		}
+		.spe {
+			background: #f08519;
+		}
+		div.spe {
+			height: auto;
+		}
+		.spe em {
+			display: block;
+			width: 96%;
+			height: 100%;
+		}
+		.match .ellipsis {
+			display: inline-block;
+			width: 20rem;
+			vertical-align: bottom;
+		}
+		.borderLine {
+			padding: 3% 6%; 
+			color: #8b8b8b;
+			border-bottom: 2px solid #eee;
+		}
+		.map {
+			margin: 3% 0;
+			height: 18.5rem;
+		}
+		.main footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			height: 4.17rem;
+			display: table;
+			table-layout: fixed;
+			width: 100%;
+			background: #fff;
+			line-height: 4.17rem;
+			border: 2px solid #eee;
+		}
+		.main footer a {
+			display: table-cell;
+			text-align: center;
+			font-size: 1.3rem;
+		}
+		.main footer a:nth-child(1) span {
+			padding-left: 1.46rem;
+			background: url("../images/tel.png") 6% 0 no-repeat;
+			background-size: 1rem 1.46rem;
+		}
+		.main footer a:nth-child(2) span {
+			padding-left: 2rem;
+			background: url("../images/cusMark.png") 6% 0 no-repeat;
+			background-size: 1.5rem 1.46rem;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide"><img src="../images/1.jpg" alt="图片" title="图片"></div>
+		        <div class="swiper-slide"><img src="../images/2.jpg" alt="图片" title="图片"></div>
+		        <div class="swiper-slide"><img src="../images/3.jpg" alt="图片" title="图片"></div>
+		        <div class="swiper-slide"><img src="../images/4.jpg" alt="图片" title="图片"></div>
+		        <div class="swiper-slide"><img src="../images/5.jpg" alt="图片" title="图片"></div>
+		    </div>
+		    <!-- 分页器 -->
+		    <div class="swiper-pagination"></div>
+		</div>
+		<div class="title">
+			<p class="addTit"><em class="ellipsis">中骏裕景湾</em><span>普通住宅</span><span>商铺</span></p>
+			<p>销售均价 : <span class="price">15000元/㎡</span></p>
+		</div>
+		<p class="commision ellipsis">佣金:<span>6.0%</span><span>（固定比例）</span></p>
+		<div class="person">
+			<div><p>合作经纪人</p><p class="ellipsis">999</p></div>
+			<div><p>带看客户</p><p class="ellipsis">999</p></div>
+			<div><p>成交客户</p><p class="ellipsis">999</p></div>
+		</div>
+		<p class="line"></p>
+		<div class="houseDet">
+			<h3>楼盘详情</h3>
+			<div class="detData">
+				<div><span class="flex1 fontCenter orange">楼盘地址</span><span class="flex3 ellipsis"><em>平和正兴大道平和正兴大道</em></span></div>
+				<div><span class="flex1 fontCenter yellow">主力户型</span><span class="flex3 ellipsis gray"><em>94-120m三房、四房户型</em></span></div>
+				<div><span class="flex1 fontCenter orange">开盘时间</span><span class="flex1 ellipsis"><em>2014.1</em></span><span class="flex1 fontCenter orange">交房时间</span><span class="flex1 ellipsis"><em>2015.1</em></span></div>
+				<div><span class="flex1 fontCenter yellow">建筑密度</span><span class="flex1 ellipsis gray"><em>19%</em></span><span class="flex1 fontCenter yellow">绿化率</span><span class="flex1 ellipsis gray"><em>35%</em></span></div>
+				<div><span class="flex1 fontCenter orange">物业费</span><span class="flex3 ellipsis"><em>0.9元/m*月</em></span></div>
+				<div><span class="flex1 fontCenter yellow">物业公司</span><span class="flex3 ellipsis gray"><em>天理物业服务有限公司</em></span></div>
+				<div><span class="flex1 fontCenter orange">开发单位</span><span class="flex3 ellipsis"><em>福建大师房地产开发有限公司</em></span></div>
+				<div><span class="flex1 fontCenter yellow">投资单位</span><span class="flex3 ellipsis gray"><em>/</em></span></div>
+				<div class="spe">
+					<span class="flex1 fontCenter orange speText">楼盘特色</span>
+					<span class="flex3 ellipsis bgWhite">
+						<em>
+							<p class="ellipsis">与学校签约与学校签约</p>
+							<p class="ellipsis">与学校签约与学校签约</p>
+							<p class="ellipsis">与学校签约与学校签约</p>
+							<p class="ellipsis">与学校签约与学校签约</p>
+							<p class="ellipsis">与学校签约与学校签约</p>
+						</em>
+					</span>
+				</div>
+			</div>
+		</div>
+		<p class="line"></p>
+		<div class="match">
+			<h3>周边配套</h3>
+			<div class="borderLine">
+				<p>购物 : <span class="ellipsis">大润发、大润发、大润发</span></p>
+				<p>学校 : <span class="ellipsis">大润发、大润发、大润发</span></p>
+				<p>医院 : <span class="ellipsis">大润发、大润发、大润发</span></p>
+			</div>
+			<h3>交通路线</h3>
+			<div class="borderLine">
+				<p>乘坐K3、K3、K3即可到达</p>
+			</div>
+			<h3>项目地址</h3>
+			<div class="borderLine">
+				<p>城东体育街西侧</p>
+				<div class="map" id="allmap"></div>
+			</div>
+		</div>
+		<footer>
+			<a href="tel:13459076532" title="电话报备"><span>电话报备</span></a>
+			<a href="custRap.html" title="客户报备" class="orange"><span>客户报备</span></a>
+		</footer>
+	</div>
+	<script>
+		//大图滚动
+	    var swiper = new Swiper('.swiper-container', {
+	        pagination: '.swiper-pagination',
+	        loop : true,
+	        paginationClickable: true
+	    });
+	    // 百度地图API功能
+		var map = new BMap.Map("allmap");    // 创建Map实例
+		map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+		map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+		map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+		var marker = new BMap.Marker(new BMap.Point(116.404, 39.915));	//创建标记点
+		map.addOverlay(marker);			//向地图添加标记
+	</script>
+</body>
+</html>

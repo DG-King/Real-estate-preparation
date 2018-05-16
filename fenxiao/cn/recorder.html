@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>报备记录</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<script src="../js/common.js"></script>
+	<style>
+	    .main {
+	    	background: #eee;
+	    	min-height: 100vh;
+	    }
+	    .tabTit, .recoderItem {
+	    	background: #fff;
+	    }
+		.searchHeader {
+			position: fixed;
+			width: 100%;
+			height: 3.33rem;
+			background: #f08519;
+			z-index: 11;
+		}
+		.searchHeader div {
+			position: relative;
+			overflow: hidden;
+			float: left;
+			width: 72%;
+			height: 2.5rem;
+			margin: 0.41rem 0 0 8%;
+			border-radius: 5px;
+		}
+		.searchHeader input {
+			display: block;
+			width: 80%;
+			height: 100%;
+			padding: 0 15% 0 5%;
+			border: 0;
+			outline: none;
+		}
+		.searchHeader span {
+			position: absolute;
+			right: 5%;
+			top: 25%;
+			width: 1.25rem;
+			height: 1.25rem;
+			background: url("../images/clear.png") 0 0 no-repeat;
+			background-size: 1.25rem 1.25rem;
+		}
+		.magnifier {
+			float: left;
+			width: 1.88rem;
+			height: 2.5rem;
+			margin: 0.41rem 0 0 7%;
+			background: url("../images/magnifier.png") 0 50% no-repeat;
+			background-size: 1.92rem 2rem;
+		}
+		.ellipsis {
+			overflow: hidden;
+			text-overflow:ellipsis;
+			white-space: nowrap;
+		}
+		.tableF {
+			display: table;
+			table-layout: fixed;
+			width: 100%;
+		}
+		.tableC {
+			display: table-cell;
+		}
+		.tabTit {
+			height: 3.33rem;
+			padding-top: 3.33rem;
+			line-height: 3.33rem;
+			text-align: center;
+		}
+		.tabTit a {
+			border: 1px solid #eee;
+			border-right: none;
+		}
+		.tabTit a.active {
+			background: #f08519;
+			color: #fff;
+		}
+		.recoderItem h3 {
+			height: 3.25rem;
+			padding-left: 2.67rem;
+			border-bottom: 1px solid #eee;
+			line-height: 3.25rem;
+			background: url("../images/meActive.png") 1.5rem 40% no-repeat;
+			background-size: 1rem 1.5rem;
+		}
+		.recoderItem h3 em {
+			float: right;
+			max-width: 9rem;
+			margin-right: 1.58rem;
+		}
+		.name {
+			float: left;
+			max-width: 5rem;
+		}
+		.footer {
+			height: 3.33rem;
+			line-height: 3.33rem;
+			text-align: center;
+		}
+		.footer a {
+			border-right: 1px solid #eee;
+			color: #8b8b8b;
+			font-size: 1.2rem;
+		}
+		.footer a:nth-child(1) span {
+			padding-left: 2rem;
+			background: url("../images/edit.png") 10% 0 no-repeat;
+			background-size: 1.46rem 1.33rem;
+		}
+		.footer a:nth-child(2) span {
+			padding-left: 2rem;
+			background: url("../images/promise.png") 10% 0 no-repeat;
+			background-size: 1.46rem 1.33rem;
+		}
+		.footer a:nth-child(3) span {
+			padding-left: 2rem;
+			background: url("../images/del.png") 13% 0 no-repeat;
+			background-size: 1.33rem 1.33rem;
+		}
+		.step {
+			height: 9.08rem;
+			border-bottom: 1px solid #eee;
+		}
+		.markP {
+			height: 1.92rem;
+			padding-left: 2.33rem;
+			line-height: 1.92rem;
+			color: #8b8b8b;
+		}
+		.repP {
+			float: left;
+			max-width: 10rem;
+		}
+		.remark {
+			float: right;
+			max-width: 11rem;
+			margin-right: 2.25rem;
+		}
+		.stepTool {
+			height: 3.67rem;
+			padding: 3rem 12% 0 6%;
+		}
+		.midLine {
+			position: relative;
+			height: 0.21rem;
+			background: #dcdedd;
+		}
+		.step1, .step2, .step3, .step4 {
+			position: absolute;
+			width: 1.5rem;
+			height: 1.5rem;
+			border-radius: 50%;
+			background: #8b8b8b;
+			z-index: 2;
+			color: #8b8b8b;
+		}
+		.step1 {
+			top: -0.65rem;
+			left: 0;
+		}
+		.step2 {
+			top: -0.65rem;
+			left: 33%;
+		}
+		.step3 {
+			top: -0.65rem;
+			left: 66%;
+		}
+		.step4 {
+			top: -0.65rem;
+			left: 99%;
+		}
+		.iconText {
+			position: absolute;
+			bottom: -1.5rem;
+			width: 3rem;
+			left: -.5rem;
+		}
+		.line {
+			height: 0.83rem;
+			background: #eee;
+		}
+		.end {
+			background: #f08519;
+		}
+		.end::before {
+			content: '\2713';
+			color: #fff;
+			margin-left: .4rem;
+		}
+		.footer a.endText {
+			color: #ccc;
+		}
+		.footer a.endText:nth-child(1) span {
+			background: url("../images/editEnd.png") 10% 0 no-repeat;
+			background-size: 1.46rem 1.33rem;
+		}
+		.footer a.endText:nth-child(2) span {
+			padding-left: 2rem;
+			background: url("../images/promiseEnd.png") 10% 0 no-repeat;
+			background-size: 1.46rem 1.33rem;
+		}
+		.footer a.endText:nth-child(3) span {
+			padding-left: 2rem;
+			background: url("../images/delEnd.png") 13% 0 no-repeat;
+			background-size: 1.33rem 1.33rem;
+		}
+		.main footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			height: 4.17rem;
+			display: table; 
+			table-layout: fixed;
+			width: 100%;
+			background: #fff;
+			z-index: 11;
+		}
+		.main footer a {
+			display:table-cell;
+			height: 2rem;
+			padding-top: 2.17rem;
+			border: 1px solid #eee;
+			text-align: center;
+			color: #8b8b8b;
+		}
+		.main footer a:nth-child(1), .main footer a:nth-child(2) {
+			border-right: none;
+		}
+		.main footer a:nth-child(1) {
+			background: url("../images/home.png") 50% 20% no-repeat;
+			background-size: 1.5rem 1.5rem;
+		}
+		.main footer a:nth-child(2) {
+			background: url("../images/custome.png") 50% 20% no-repeat;
+			background-size: 1.67rem 1.5rem;
+		}
+		.main footer a:nth-child(3) {
+			background: url("../images/me.png") 50% 20% no-repeat;
+			background-size: 1rem 1.5rem;
+		}
+		.main footer a.active {
+			color: #f08618;
+		}
+		.main footer a:nth-child(2).active {
+			background: url("../images/customeActive.png") 50% 20% no-repeat;
+			background-size: 1.5rem 1.5rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="searchHeader">
+			<div>
+				<input type="text" name="" value="" placeholder="请输入关键字" />
+				<span class="clear"></span>
+			</div>
+			<a href="###" title="search" class="magnifier"></a>
+		</div>
+		<div class="tableF tabTit">
+			<a href="###" title="今天" class="tableC active">全部</a>
+			<a href="###" title="昨天" class="tableC">已报备</a>
+			<a href="###" title="本周" class="tableC">已到场</a>
+			<a href="###" title="本月" class="tableC">已认筹</a>
+			<a href="###" title="全部" class="tableC">已成交</a>
+		</div>
+		<p class="line"></p>
+		<div class="recoderItem">
+			<h3><span class="name ellipsis">张三</span><span>(先生)</span><span>135****1234</span><em class="ellipsis">中骏裕景湾</em></h3>
+			<div class="step">
+				<div class="stepTool">
+					<div class="midLine">
+						<div class="step1"><span class="iconText">已报备</span></div>
+						<div class="step2"><span class="iconText">未约看</span></div>
+						<div class="step3"><span class="iconText">未认筹</span></div>
+						<div class="step4"><span class="iconText">未成交</span></div>
+					</div>
+				</div>
+				<p class="markP"><em class="repP ellipsis">报备人 : <span>李四</span></em><em class="remark ellipsis">备注 : <span>投资客</span></em></p>
+			</div>
+			<div class="footer tableF">
+				<a href="custRap.html" title="编辑" class="tableC"><span>编辑</span></a>
+				<a href="###" title="约看" class="tableC"><span>约看</span></a>
+				<a href="###" title="删除" class="tableC del"><span>删除</span></a>
+			</div>
+		</div>
+		<p class="line"></p>
+		<div class="recoderItem">
+			<h3><span class="name ellipsis">张三</span><span>(先生)</span><span>135****1234</span><em class="ellipsis">中骏裕景湾</em></h3>
+			<div class="step">
+				<div class="stepTool">
+					<div class="midLine">
+						<div class="step1 end"><span class="iconText">已报备</span></div>
+						<div class="step2 end"><span class="iconText">未约看</span></div>
+						<div class="step3 end"><span class="iconText">未认筹</span></div>
+						<div class="step4 end"><span class="iconText">未成交</span></div>
+					</div>
+				</div>
+				<p class="markP"><em class="repP ellipsis">报备人 : <span>李四</span></em><em class="remark ellipsis">备注 : <span>投资客</span></em></p>
+			</div>
+			<div class="footer tableF">
+				<a href="custRap.html" title="编辑" class="tableC endText"><span>编辑</span></a>
+				<a href="custRap.html" title="约看" class="tableC endText"><span>约看</span></a>
+				<a href="###" title="删除" class="tableC del endText"><span>删除</span></a>
+			</div>
+		</div>
+		<footer>
+			<a href="index.html" title="首页">首页</a>
+			<a href="recorder.html" title="客户" class="active">客户</a>
+			<a href="me.html" title="我的">我的</a>
+		</footer>
+	</div>
+	<script>
+		$(".clear").click(function() {
+			$(".searchHeader input").val("");
+		});
+		$(".tabTit a").click(function() {
+			if($(this).hasClass('active')) {
+				return false;
+			}else {
+				$(this).addClass('active').siblings().removeClass('active');
+			}
+		});
+		$(".del").click(function() {
+			$(this).parent().parent().remove();
+		});
+		var screenHeight = document.documentElement.clientHeight + $(".main footer").height() + 20;
+		var pageHeight = $(".main").height();
+		console.log(screenHeight, pageHeight);
+		if( screenHeight < pageHeight ) {
+			$(".main").css('paddingBottom', '4.5rem');
+		}
+	</script>
+</body>
+</html>

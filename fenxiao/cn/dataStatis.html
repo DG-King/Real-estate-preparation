@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>数据统计</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<script src="../js/jquery-1.11.3.min.js"></script>
+	<script src="../js/common.js"></script>
+	<style>
+		.ellipsis {
+			overflow: hidden;
+			text-overflow:ellipsis;
+			white-space: nowrap;
+		}
+		.tableF {
+			display: table;
+			table-layout: fixed;
+			width: 100%;
+		}
+		.tableC {
+			display: table-cell;
+		}
+		.main header {
+			height: 3.17rem;
+			background: #fff;
+			line-height: 3.17rem;
+			text-align: center;
+		}
+		.main header a {
+			border-right: 1px solid #eee;
+		}
+		a.active {
+			background: #f08519;
+			color: #fff;
+		}
+		.borderLine {
+			height: 3.33rem;
+			padding-left: 7%;
+			line-height: 3.33rem;
+			background: #fff;
+		}
+		.itemNm {
+			float: left;
+			width: 17%;
+			margin-right: 10%;
+			text-align: justify;
+			text-align-last: justify;
+		}
+		.itemNm:after {
+		    display: inline-block;
+		    overflow: hidden;
+		    width: 100%;
+		    height: 0;
+		    /*content: '';*/
+		}
+		.linkOther {
+			float: left;
+			width: 60%;
+			height: 3.33rem;
+			padding-right: 13%;
+			background: url("../images/rightRow.png") 90% 50% no-repeat;
+			background-size: 0.58rem 0.92rem;
+			text-align: right;
+		}
+		.data {
+			height: 3.58rem;
+			line-height: 3.58rem;
+			text-align: center;
+			background: #fff;
+			border-bottom: 1px solid #eee;
+		}
+		.data a {
+			border-right: 1px solid #eee;
+		}
+		.person div {
+			height: 3.34rem;
+			padding-top: 0.83rem;
+			background: #fff;
+			text-align: center;
+			border-right: 1px solid #eee;
+		}
+		.person .ellipsis {
+		    padding: 0 5%;
+		}
+		.dataShow {
+			width: 100%;
+			table-layout: fixed;
+			background: #fff;
+		}
+		.dataShow th {
+			width: 20%;
+			height: 3.08rem;
+			background: #f08519;
+			color: #fff;
+			border-right: 1px solid #fff;
+		}
+		.dataShow td {
+			width: 20%;
+			height: 2.67rem;
+			text-align: center;
+			border-bottom: 1px solid #e4e4e4;
+		}
+		table tr:nth-child(even){
+			background: #eee;
+		}
+		.line {
+			height: 0.67rem;
+			background: #eee;
+		}
+		.main footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			height: 4.17rem;
+			display: table; 
+			table-layout: fixed;
+			width: 100%;
+			background: #fff;
+		}
+		.main footer a {
+			display:table-cell;
+			height: 2rem;
+			padding-top: 2.17rem;
+			border: 1px solid #eee;
+			text-align: center;
+			color: #8b8b8b;
+		}
+		.main footer a:nth-child(1), .main footer a:nth-child(2) {
+			border-right: none;
+		}
+		.main footer a:nth-child(1) {
+			background: url("../images/home.png") 50% 20% no-repeat;
+			background-size: 1.5rem 1.5rem;
+		}
+		.main footer a:nth-child(2) {
+			background: url("../images/custome.png") 50% 20% no-repeat;
+			background-size: 1.67rem 1.5rem;
+		}
+		.main footer a:nth-child(3) {
+			background: url("../images/me.png") 50% 20% no-repeat;
+			background-size: 1rem 1.5rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<header class="tableF">
+			<a href="###" title="今天" class="tableC active">今天</a>
+			<a href="###" title="昨天" class="tableC">昨天</a>
+			<a href="###" title="本周" class="tableC">本周</a>
+			<a href="###" title="本月" class="tableC">本月</a>
+			<a href="###" title="全部" class="tableC">全部</a>
+		</header>
+		<p class="line"></p>
+		<div class="borderLine">
+			<span class="itemNm ellipsis">统计项目</span>
+			<a href="choseItem.html" title="统计项目" class="linkOther ellipsis">全部项目</a>
+		</div>
+		<p class="line"></p>
+		<div class="data tableF">
+			<a href="###" title="我的" class="tableC active">我的统计</a>
+			<a href="###" title="团队" class="tableC">团队统计</a>
+		</div>
+		<div class="person tableF">
+			<div class="tableC"><p>合作经纪人</p><p class="ellipsis">999</p></div>
+			<div class="tableC"><p>带看客户</p><p class="ellipsis">999</p></div>
+			<div class="tableC"><p>成交客户</p><p class="ellipsis">999</p></div>
+		</div>
+		<p class="line"></p>
+		<table class="dataShow">
+			<thead>
+				<tr>
+					<th>排名</th>
+					<th>姓名</th>
+					<th>已报备</th>
+					<th>已到场</th>
+					<th>已成交</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">张三</td>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">1</td>
+				</tr>
+				<tr>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">张三</td>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">1</td>
+				</tr>
+				<tr>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">张三</td>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">1</td>
+				</tr>
+				<tr>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">张三</td>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">1</td>
+				</tr>
+				<tr>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">张三</td>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">1</td>
+				</tr>
+				<tr>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">张三</td>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">1</td>
+					<td class="ellipsis">1</td>
+				</tr>
+			</tbody>
+		</table>
+		<footer>
+			<a href="index.html" title="首页">首页</a>
+			<a href="recorder.html" title="客户">客户</a>
+			<a href="me.html" title="我的">我的</a>
+		</footer>
+	</div>
+	<script>
+		var screenHeight = document.documentElement.clientHeight + $(".main footer").height() + 20;
+		var pageHeight = $(".main").height();
+		if( screenHeight < pageHeight ) {
+			$(".main").css('paddingBottom', '4.5rem');
+		}
+		$(".main header a").click(function() {
+			if($(this).hasClass('active')) {
+				return false;
+			}else {
+				$(this).addClass('active').siblings().removeClass('active');
+			}
+		});
+		$(".data a").click(function() {
+			if($(this).hasClass('active')) {
+				return false;
+			}else {
+				$(this).addClass('active').siblings().removeClass('active');
+			}
+		});
+	</script>
+</body>
+</html>
